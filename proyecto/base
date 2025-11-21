@@ -1,52 +1,94 @@
-CREATE TABLE pilotos (
-    num INT,
-    nombre VARCHAR(40) NOT NULL,
-    nacionalidad VARCHAR(40) NOT NULL,
-    equipo VARCHAR(40) NOT NULL,
-    puntos INT DEFAULT NULL
-);
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1:3306
+-- Tiempo de generación: 21-11-2025 a las 08:33:59
+-- Versión del servidor: 9.1.0
+-- Versión de PHP: 8.3.14
 
-ALTER TABLE `pilotos` ADD PRIMARY KEY(`num`);
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
--- Insertar datos de los pilotos
-INSERT INTO pilotos (num, nombre, nacionalidad, equipo, puntos) VALUES
--- Red Bull Racing
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `proyecto`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pilotos`
+--
+
+DROP TABLE IF EXISTS `pilotos`;
+CREATE TABLE IF NOT EXISTS `pilotos` (
+  `num` int NOT NULL,
+  `nombre` varchar(40) NOT NULL,
+  `nacionalidad` varchar(40) NOT NULL,
+  `equipo` varchar(40) NOT NULL,
+  `puntos` int DEFAULT NULL,
+  PRIMARY KEY (`num`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `pilotos`
+--
+
+INSERT INTO `pilotos` (`num`, `nombre`, `nacionalidad`, `equipo`, `puntos`) VALUES
 (1, 'Max Verstappen', 'Neerlandés', 'Red Bull Racing', 341),
 (22, 'Yuki Tsunoda', 'Japonés', 'Red Bull Racing', 28),
-
--- McLaren
 (4, 'Lando Norris', 'Británico', 'McLaren', 390),
 (81, 'Oscar Piastri', 'Australiano', 'McLaren', 366),
-
--- Ferrari
 (16, 'Charles Leclerc', 'Monegasco', 'Ferrari', 214),
 (44, 'Lewis Hamilton', 'Británico', 'Ferrari', 148),
-
--- Mercedes
 (63, 'George Russell', 'Británico', 'Mercedes', 276),
 (47, 'Kimi Antonelli', 'Italiano', 'Mercedes', 122),
-
--- Aston Martin
 (18, 'Lance Stroll', 'Canadiense', 'Aston Martin', 32),
 (14, 'Fernando Alonso', 'Español', 'Aston Martin', 40),
-
--- Williams
 (23, 'Alexander Albon', 'Tailandés', 'Williams', 73),
 (55, 'Carlos Sainz', 'Español', 'Williams', 38),
-
--- Alpine
 (10, 'Pierre Gasly', 'Francés', 'Alpine', 22),
 (50, 'Jack Doohan', 'Australiano', 'Alpine', 0),
 (45, 'Franco Colapinto', 'Argentino', 'Alpine', 0),
-
--- Haas
 (31, 'Esteban Ocon', 'Francés', 'Haas', 30),
 (87, 'Oliver Bearman', 'Británico', 'Haas', 40),
-
--- Kick Sauber
 (27, 'Nico Hülkenberg', 'Alemán', 'Kick Sauber', 43),
 (99, 'Gabriel Bortoleto', 'Brasileño', 'Kick Sauber', 19),
-
--- Racing Bulls
 (40, 'Liam Lawson', 'Neozelandés', 'Racing Bulls', 36),
-(37, 'Isack Hadjar', 'Francés', 'Racing Bulls', 43);
+(37, 'Isack Hadjar', 'Francés', 'Racing Bulls', 43),
+(25, 'Juan Perez', 'gringa', 'Alpine', 0),
+(2, 'Maria Graciela', 'titin', 'Red Bull Racing', 0),
+(67, 'Juan Perez Rodriguez', 'Méxicana', 'Kick Sauber', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+DROP TABLE IF EXISTS `usuarios`;
+CREATE TABLE IF NOT EXISTS `usuarios` (
+  `id` int NOT NULL,
+  `nombre` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nombre`, `password`) VALUES
+(123, 'Administrador', '12345');
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
